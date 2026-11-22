@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="it" data-lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informativa sulla privacy · Mani Massage</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .legal { max-width: 820px; margin: 0 auto; padding: 40px 16px 60px; }
+  .legal h1 { font-size: clamp(2rem, 5vw, 2.6rem); margin-bottom: 6px; }
+  .legal h2 { font-size: 1.5rem; margin: 30px 0 8px; }
+  .legal p, .legal li { margin: 0 0 10px; }
+  .legal .upd { color: var(--text-soft); font-size: .9rem; }
+  .back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 10px; text-decoration: none; }
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="Mani Massage, torna al sito">
+    <img src="img/logo-emblema.png" alt="" width="44" height="44">
+    <span>Mani Massage</span>
+  </a>
+</header>
+
+<main class="legal">
+  <a class="back" href="index.html">← Torna al sito</a>
+  <h1>Informativa sulla privacy</h1>
+  <p class="upd">Ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (GDPR). Ultimo aggiornamento: <span id="agg">novembre 2026</span>.</p>
+
+  <h2>1. Titolare del trattamento</h2>
+  <p><span data-t="nome"></span>, attività Mani Massage, <span data-t="indirizzoCompleto"></span><span id="piva-priv"></span>.<br>
+  Email: <a class="js-mail" href="#" data-t="email"></a> · Telefono: <a class="js-tel" href="#" data-t="telefono"></a></p>
+
+  <h2>2. Quali dati raccogliamo</h2>
+  <p>Questo sito non contiene moduli di registrazione e non usa strumenti di statistica o di profilazione. Trattiamo soltanto i dati che ci comunichi tu quando ci contatti per telefono, WhatsApp, email o tramite la pagina di prenotazione online: nome, recapiti, data e ora dell'appuntamento ed eventuali informazioni che decidi di condividere sul trattamento desiderato.</p>
+  <p>Ti chiediamo di non inviare, tramite questi canali, informazioni sulla tua salute che non siano strettamente necessarie. Eventuali indicazioni utili alla sicurezza del massaggio (per esempio allergie o controindicazioni) saranno trattate solo con il tuo consenso esplicito e al solo fine di eseguire il trattamento in sicurezza.</p>
+
+  <h2>3. Perché li trattiamo e base giuridica</h2>
+  <ul>
+    <li>Rispondere alle tue richieste e gestire gli appuntamenti: esecuzione di misure precontrattuali e contrattuali (art. 6.1.b GDPR).</li>
+    <li>Adempimenti fiscali e contabili, quando previsti: obbligo di legge (art. 6.1.c GDPR).</li>
+  </ul>
+  <p>I dati non vengono usati per invio di pubblicità, né ceduti a terzi per scopi commerciali.</p>
+
+  <h2>4. Servizi di terze parti</h2>
+  <ul>
+    <li><strong>WhatsApp</strong> (WhatsApp Ireland Ltd.): se ci scrivi su WhatsApp, il messaggio passa per i server di questo servizio, secondo la sua informativa.</li>
+    <li><strong>Google Calendar, prenotazione online</strong> (Google Ireland Ltd.): se prenoti online, i dati inseriti nella pagina di prenotazione sono gestiti tramite Google.</li>
+    <li><strong>Google Maps</strong> (Google Ireland Ltd.): la mappa viene caricata solo se premi "Mostra la mappa". Da quel momento Google può raccogliere dati di navigazione e impostare cookie.</li>
+    <li><strong>GitHub Pages</strong> (GitHub Inc.): il servizio che ospita il sito può registrare l'indirizzo IP dei visitatori per motivi di sicurezza tecnica.</li>
+  </ul>
+  <p>Alcuni di questi fornitori possono trasferire dati fuori dall'Unione Europea, sulla base delle garanzie previste dal GDPR (per esempio l'EU-US Data Privacy Framework o le clausole contrattuali standard).</p>
+
+  <h2>5. Cookie</h2>
+  <p>Il sito non usa cookie di profilazione né di statistica. Memorizza solo, sul tuo dispositivo, la lingua scelta (italiano o inglese): è un'informazione tecnica che non serve a identificarti e non richiede consenso. Per Google Maps vale quanto indicato al punto 4.</p>
+
+  <h2>6. Per quanto tempo conserviamo i dati</h2>
+  <p>I dati delle richieste e degli appuntamenti sono conservati per il tempo necessario a gestire il rapporto e comunque non oltre 24 mesi dall'ultimo contatto, salvo i tempi più lunghi previsti dalla legge per i documenti fiscali (10 anni).</p>
+
+  <h2>7. I tuoi diritti</h2>
+  <p>Puoi chiedere in ogni momento di accedere ai tuoi dati, correggerli, cancellarli, limitarne il trattamento, opporti o riceverne una copia (artt. 15-22 GDPR), scrivendo all'indirizzo email indicato al punto 1. Puoi anche presentare reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).</p>
+</main>
+
+<footer class="foot" style="padding-bottom:40px">
+  <p>© <span id="anno">2026</span> Mani Massage</p>
+</footer>
+
+<script src="dati.js"></script>
+<script>
+(function () {
+  var D = window.SITO || {};
+  var ind = [D.indirizzo, [D.cap, D.citta, D.provincia ? '(' + D.provincia + ')' : ''].join(' ').trim()].filter(Boolean).join(', ');
+  var t = { nome: D.nome, email: D.email, telefono: D.telefono, indirizzoCompleto: ind };
+  document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t[el.getAttribute('data-t')] || ''; });
+  document.querySelectorAll('.js-mail').forEach(function (a) { a.href = 'mailto:' + D.email; });
+  document.querySelectorAll('.js-tel').forEach(function (a) { a.href = 'tel:' + D.telefonoLink; });
+  if (D.partitaIva) document.getElementById('piva-priv').textContent = ', P.IVA ' + D.partitaIva;
+  document.getElementById('anno').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
