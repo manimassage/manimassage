@@ -23,12 +23,47 @@ Non serve toccare gli altri file.
 | Scheda Google | `schedaGoogle`, `recensioniGoogle` | link della scheda Google Business |
 | Partita IVA | `partitaIva` | `"01234567890"` |
 | Prezzi | `prezzo` dentro ogni trattamento | `"50 €"` (vuoto = "su richiesta") |
+| Offerta prima visita | `offertaBenvenuto_it`, `offertaBenvenuto_en` | `"-10% sul primo massaggio"` (vuoto = non compare) |
+| Importi buoni regalo | `buoniRegalo` | `["50 €", "80 €", "100 €"]` |
+| Statistiche visite | `goatcounter` | il codice scelto su goatcounter.com, per esempio `"manimassage"` |
 
 ## Aggiungere un trattamento
 
 1. In `dati.js`, nella lista `trattamenti`, copia un blocco intero da `{` a `},`.
 2. Incollalo sotto l'ultimo blocco.
 3. Cambia titolo, testo (italiano e inglese), durata e prezzo.
+
+Ogni trattamento ha anche la riga **Ideale** (`ideale_it`, `ideale_en`): una frase breve su a chi è adatto. Nei testi evita promesse di tipo medico (per esempio "cura", "guarisce", "elimina la cellulite").
+
+## Recensioni
+
+Quando le clienti lasciano una recensione su Google, puoi riportarne alcune nella lista `recensioni`:
+
+```js
+{ nome: "Giulia R.", testo: "Mani d'oro, sono uscita rinata.", stelle: 5 },
+```
+
+Con la lista vuota la sezione "Dicono di me" non compare. Riporta solo recensioni vere, con il nome abbreviato.
+
+## Pacchetti
+
+Nella lista `pacchetti`:
+
+```js
+{ nome_it: "Percorso 5 massaggi", nome_en: "5-massage path",
+  descrizione_it: "Cinque sedute da usare in tre mesi", descrizione_en: "Five sessions within three months",
+  prezzo: "" },
+```
+
+Con il prezzo vuoto compare solo la descrizione e il pulsante "Chiedi informazioni".
+
+## Domande frequenti
+
+Nella lista `faq` ogni domanda ha `d_it`, `d_en` (domanda) e `r_it`, `r_en` (risposta). Google può mostrarle direttamente nei risultati di ricerca.
+
+## Periodo di Natale
+
+Dal 15 novembre al 24 dicembre il titolo della sezione regali diventa automaticamente "Regala benessere a Natale". Non serve fare nulla.
 
 ## Aggiungere o sostituire le foto
 

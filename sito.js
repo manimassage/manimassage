@@ -40,13 +40,100 @@
       '<article class="card">' + foto +
         '<h3>' + bi(t.titolo_it, t.titolo_en) + '</h3>' +
         '<p lang="it">' + esc(t.testo_it) + '</p><p lang="en">' + esc(t.testo_en || t.testo_it) + '</p>' +
+        (t.ideale_it ? '<p class="ideal"><strong>' + bi('Ideale:', 'Ideal for:') + '</strong> ' + bi(t.ideale_it, t.ideale_en) + '</p>' : '') +
         '<div class="card-foot">' +
           '<span class="time">' + bi('Tempo', 'Time') + ' ' + esc(t.durata) + '</span>' +
           '<span class="price">' + prezzo + '</span>' +
         '</div>' +
-        '<a class="card-book" href="' + wa('Ciao Manuela, vorrei prenotare: ' + t.titolo_it + '.') + '" target="_blank" rel="noopener">' + bi('Prenota questo trattamento', 'Book this treatment') + ' →</a>' +
+        '<div class="card-links">' +
+          '<a class="card-book" href="' + wa('Ciao Manuela, vorrei prenotare: ' + t.titolo_it + '.') + '" target="_blank" rel="noopener">' + bi('Prenota', 'Book') + ' →</a>' +
+          '<a class="card-gift" href="' + wa('Ciao Manuela, vorrei regalare un buono per: ' + t.titolo_it + '.') + '" target="_blank" rel="noopener">' + bi('Regalalo', 'Gift it') + '</a>' +
+        '</div>' +
       '</article>');
   });
+
+  /* offerta di benvenuto */
+  if (D.offertaBenvenuto_it) {
+    var off = $('#offerta');
+    off.innerHTML = '<span class="offer-tag">' + bi('Prima visita', 'First visit') + '</span> ' + bi(D.offertaBenvenuto_it, D.offertaBenvenuto_en);
+    off.hidden = false;
+  }
+
+  /* recensioni */
+  var R = D.recensioni || [];
+  if (R.length) {
+    $('#lista-recensioni').innerHTML = R.map(function (r) {
+      var n = Math.max(0, Math.min(5, parseInt(r.stelle, 10) || 5));
+      return '<figure class="review-item"><div class="stars" aria-label="' + n + ' su 5">' + '★★★★★'.slice(0, n) + '<span>' + '★★★★★'.slice(0, 5 - n) + '</span></div>' +
+        '<blockquote>' + esc(r.testo) + '</blockquote><figcaption>' + esc(r.nome) + '</figcaption></figure>';
+    }).join('');
+    $('#recensioni').hidden = false;
+  }
+  var rl = [];
+  if (D.schedaGoogle) rl.push('<a class="btn btn--line" href="' + esc(D.schedaGoogle) + '" target="_blank" rel="noopener">' + bi('Tutte le recensioni su Google', 'All reviews on Google') + '</a>');
+  if (D.recensioniGoogle) rl.push('<a class="btn btn--line" href="' + esc(D.recensioniGoogle) + '" target="_blank" rel="noopener">' + bi('Lascia una recensione', 'Leave a review') + '</a>');
+  if ($('#recensioni-link')) $('#recensioni-link').innerHTML = rl.join('');
+
+  /* periodo di Natale: dal 15 novembre al 24 dicembre */
+  var oggi = new Date(), m = oggi.getMonth(), g = oggi.getDate();
+  if ((m === 10 && g >= 15) || (m === 11 && g <= 24)) {
+    root.classList.add('xmas');
+    $('#regali-titolo').innerHTML = bi('Regala benessere a Natale', 'Give wellbeing this Christmas');
+  }
+
+  /* buono regalo */
+  var sel = $('#buono-scelta');
+  if (sel) {
+    var opz = [];
+    (D.buoniRegalo || []).forEach(function (v) { opz.push(['Buono da ' + v, 'Voucher ' + v]); });
+    (D.trattamenti || []).forEach(function (t) { opz.push([t.titolo_it, t.titolo_en || t.titolo_it]); });
+    var fillSel = function () { sel.innerHTML = opz.map(function (o) { return '<option value="' + esc(o[0]) + '">' + esc(root.getAttribute('data-lang') === 'en' ? o[1] : o[0]) + '</option>'; }).join(''); };
+    fillSel();
+    new MutationObserver(fillSel).observe(root, { attributes: true, attributeFilter: ['data-lang'] });
+    $('#buono-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      window.open(wa('Ciao Manuela, vorrei un buono regalo: ' + sel.value + '. Come posso riceverlo?'), '_blank', 'noopener');
+    });
+  }
+
+  /* pacchetti */
+  var pk = $('#lista-pacchetti');
+  if (pk) {
+    var K = D.pacchetti || [];
+    pk.innerHTML = K.length ? '<ul class="promo-list">' + K.map(function (p) {
+      return '<li><strong>' + bi(p.nome_it, p.nome_en) + '</strong>' + (p.prezzo ? ' · ' + esc(p.prezzo) : '') + '<br>' + bi(p.descrizione_it, p.descrizione_en) + '</li>';
+    }).join('') + '</ul>'
+      : '<p lang="it">Percorsi di più sedute a prezzo dedicato, costruiti su misura. Chiedimi un preventivo.</p><p lang="en">Multi-session packages at a dedicated price, tailored to you. Ask me for a quote.</p>';
+  }
+
+  /* domande frequenti */
+  var F = D.faq || [];
+  var fl = $('#lista-faq');
+  if (fl && F.length) {
+    fl.innerHTML = F.map(function (f) {
+      return '<details class="faq-item"><summary>' + bi(f.d_it, f.d_en) + '</summary><div class="faq-a">' +
+        '<p lang="it">' + esc(f.r_it) + '</p><p lang="en">' + esc(f.r_en || f.r_it) + '</p></div></details>';
+    }).join('');
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: F.map(function (f) {
+      return { '@type': 'Question', name: f.d_it, acceptedAnswer: { '@type': 'Answer', text: f.r_it } };
+    }) });
+    document.head.appendChild(ld);
+  } else if (fl) { fl.parentNode.hidden = true; }
+
+  /* statistiche GoatCounter (senza cookie), attive solo se configurate */
+  if (D.goatcounter) {
+    $$('.js-wa').forEach(function (a) { a.setAttribute('data-goatcounter-click', 'whatsapp'); });
+    $$('.js-tel').forEach(function (a) { a.setAttribute('data-goatcounter-click', 'chiamata'); });
+    online.setAttribute('data-goatcounter-click', 'prenota-online');
+    $$('.card-book').forEach(function (a) { a.setAttribute('data-goatcounter-click', 'prenota-trattamento'); });
+    $$('.card-gift').forEach(function (a) { a.setAttribute('data-goatcounter-click', 'regala-trattamento'); });
+    var gc = document.createElement('script');
+    gc.async = true; gc.src = 'https://gc.zgo.at/count.js';
+    gc.setAttribute('data-goatcounter', 'https://' + encodeURIComponent(D.goatcounter) + '.goatcounter.com/count');
+    document.body.appendChild(gc);
+  }
 
   /* promozioni */
   var promo = $('#lista-promozioni');

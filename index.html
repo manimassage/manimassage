@@ -55,10 +55,11 @@
     <span></span><span></span><span></span>
   </button>
   <nav class="nav" id="menu" aria-label="Menu principale">
-    <a href="#chi-sono"><span lang="it">Chi sono</span><span lang="en">About</span></a>
     <a href="#trattamenti"><span lang="it">Trattamenti</span><span lang="en">Treatments</span></a>
+    <a href="#chi-sono"><span lang="it">Chi sono</span><span lang="en">About</span></a>
     <a href="#regali"><span lang="it">Buoni regalo</span><span lang="en">Gift vouchers</span></a>
     <a href="#prenota"><span lang="it">Prenota</span><span lang="en">Book</span></a>
+    <a href="#domande"><span lang="it">Domande</span><span lang="en">FAQ</span></a>
     <a href="#dove"><span lang="it">Dove siamo</span><span lang="en">Find us</span></a>
     <button class="lang" type="button" title="Cambia lingua / Change language"><span lang="it">English</span><span lang="en">Italiano</span></button>
   </nav>
@@ -73,10 +74,12 @@
     <img class="hero-orn hero-orn--r" src="img/ghirigoro.svg" alt="" aria-hidden="true">
     <div class="hero-inner">
       <img class="hero-emblem" src="img/logo-emblema.webp" alt="" width="150" height="150" fetchpriority="high">
-      <h1><img src="img/logo-scritta.webp" srcset="img/logo-scritta-600.webp 600w, img/logo-scritta.webp 1200w" sizes="(max-width: 700px) 86vw, 600px" alt="Mani Massage" width="600" height="99"></h1>
+      <p class="hero-logo"><img src="img/logo-scritta.webp" srcset="img/logo-scritta-600.webp 600w, img/logo-scritta.webp 1200w" sizes="(max-width: 700px) 86vw, 600px" alt="Mani Massage" width="600" height="99"></p>
       <p class="role"><span lang="it">Massaggiatrice</span><span lang="en">Massage therapist</span></p>
+      <h1 class="hero-title"><span lang="it">Massaggi rilassanti e decontratturanti a Modica</span><span lang="en">Relaxing and deep tissue massages in Modica</span></h1>
       <p class="hero-claim"><span lang="it">Cura della persona per stare meglio</span><span lang="en">Taking care of yourself, to feel better</span></p>
-      <p class="hero-place">Modica · <span lang="it">su appuntamento</span><span lang="en">by appointment</span></p>
+      <p class="hero-place"><span lang="it">Tutti i giorni, anche sabato e domenica, su appuntamento</span><span lang="en">Every day, weekends included, by appointment</span></p>
+      <p class="offer" id="offerta" hidden></p>
       <div class="cta">
         <a class="btn btn--gold js-book" href="#prenota">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7Zm-2 8h14v10H5V10Zm2 2v2h2v-2H7Zm4 0v2h2v-2h-2Zm4 0v2h2v-2h-2Z"/></svg>
@@ -87,6 +90,25 @@
         </a>
       </div>
     </div>
+  </section>
+
+  <!-- TRATTAMENTI -->
+  <section class="services" id="trattamenti">
+    <img class="services-orn" src="img/ghirigoro.svg" alt="" aria-hidden="true">
+    <header class="section-head">
+      <h2><span lang="it">I trattamenti</span><span lang="en">Treatments</span></h2>
+      <p><span lang="it">Scegli il trattamento più adatto a te. Ogni massaggio si adatta alle tue esigenze.</span><span lang="en">Choose the treatment that suits you best. Every massage is tailored to your needs.</span></p>
+    </header>
+    <div class="cards" id="lista-trattamenti"><!-- riempito da dati.js --></div>
+  </section>
+
+  <!-- RECENSIONI -->
+  <section class="reviews" id="recensioni" hidden>
+    <header class="section-head">
+      <h2><span lang="it">Dicono di me</span><span lang="en">What clients say</span></h2>
+    </header>
+    <div class="review-grid" id="lista-recensioni"><!-- riempito da dati.js --></div>
+    <div class="cta" id="recensioni-link"></div>
   </section>
 
   <!-- CHI SONO -->
@@ -108,39 +130,41 @@
     </figure>
   </section>
 
-  <!-- TRATTAMENTI -->
-  <section class="services" id="trattamenti">
-    <img class="services-orn" src="img/ghirigoro.svg" alt="" aria-hidden="true">
-    <header class="section-head">
-      <h2><span lang="it">I trattamenti</span><span lang="en">Treatments</span></h2>
-      <p><span lang="it">Prezzi di listino. Per i pacchetti, prezzi su richiesta.</span><span lang="en">List prices. Package prices on request.</span></p>
-    </header>
-    <div class="cards" id="lista-trattamenti"><!-- riempito da dati.js --></div>
-  </section>
-
-  <!-- PACCHETTI, BUONI REGALO, PROMOZIONI -->
+  <!-- BUONI REGALO, PACCHETTI, PROMOZIONI -->
   <section class="gifts" id="regali">
     <header class="section-head">
-      <h2><span lang="it">Pacchetti, buoni regalo e promozioni</span><span lang="en">Packages, gift vouchers and offers</span></h2>
+      <h2 id="regali-titolo"><span lang="it">Buoni regalo, pacchetti e promozioni</span><span lang="en">Gift vouchers, packages and offers</span></h2>
+      <p id="regali-sotto"><span lang="it">Regala un momento di benessere a chi vuoi bene.</span><span lang="en">Give a moment of well-being to someone you love.</span></p>
     </header>
     <div class="gift-grid">
-      <article class="gift">
-        <h3><span lang="it">Pacchetti</span><span lang="en">Packages</span></h3>
-        <p lang="it">Più trattamenti a un prezzo dedicato, per un percorso di benessere completo. Prezzi su richiesta.</p>
-        <p lang="en">Several treatments at a dedicated price, for a complete well-being path. Prices on request.</p>
-        <a class="btn btn--line js-wa" data-msg="Ciao Manuela, vorrei informazioni sui pacchetti." href="#" target="_blank" rel="noopener"><span lang="it">Chiedi i prezzi</span><span lang="en">Ask for prices</span></a>
-      </article>
       <article class="gift gift--main">
         <h3><span lang="it">Buoni regalo</span><span lang="en">Gift vouchers</span></h3>
-        <p lang="it">Regala un momento di benessere a chi vuoi bene: scegli il trattamento e ricevi il buono da consegnare.</p>
-        <p lang="en">Give a moment of well-being to someone you love: choose the treatment and receive the voucher to hand over.</p>
-        <a class="btn btn--gold js-wa" data-msg="Ciao Manuela, vorrei regalare un buono massaggio." href="#" target="_blank" rel="noopener"><span lang="it">Richiedi un buono</span><span lang="en">Request a voucher</span></a>
+        <p lang="it">Scegli il trattamento o l'importo: preparo il buono e te lo consegno, pronto da regalare.</p>
+        <p lang="en">Choose the treatment or amount: I prepare the voucher and hand it to you, ready to give.</p>
+        <form class="voucher" id="buono-form">
+          <label for="buono-scelta"><span lang="it">Cosa vuoi regalare?</span><span lang="en">What would you like to give?</span></label>
+          <select id="buono-scelta"></select>
+          <button class="btn btn--gold" type="submit"><span lang="it">Richiedi il buono su WhatsApp</span><span lang="en">Request it on WhatsApp</span></button>
+        </form>
+      </article>
+      <article class="gift">
+        <h3><span lang="it">Pacchetti</span><span lang="en">Packages</span></h3>
+        <div id="lista-pacchetti"><!-- riempito da dati.js --></div>
+        <a class="btn btn--line js-wa" data-msg="Ciao Manuela, vorrei informazioni sui pacchetti." href="#" target="_blank" rel="noopener"><span lang="it">Chiedi informazioni</span><span lang="en">Ask for details</span></a>
       </article>
       <article class="gift">
         <h3><span lang="it">Promozioni</span><span lang="en">Offers</span></h3>
         <div id="lista-promozioni"><!-- riempito da dati.js --></div>
       </article>
     </div>
+  </section>
+
+  <!-- DOMANDE FREQUENTI -->
+  <section class="faq" id="domande">
+    <header class="section-head">
+      <h2><span lang="it">Domande frequenti</span><span lang="en">Frequently asked questions</span></h2>
+    </header>
+    <div class="faq-list" id="lista-faq"><!-- riempito da dati.js --></div>
   </section>
 
   <!-- PRENOTA -->

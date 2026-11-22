@@ -34,7 +34,7 @@
   Email: <a class="js-mail" href="#" data-t="email"></a> · Telefono: <a class="js-tel" href="#" data-t="telefono"></a></p>
 
   <h2>2. Quali dati raccogliamo</h2>
-  <p>Questo sito non contiene moduli di registrazione e non usa strumenti di statistica o di profilazione. Trattiamo soltanto i dati che ci comunichi tu quando ci contatti per telefono, WhatsApp, email o tramite la pagina di prenotazione online: nome, recapiti, data e ora dell'appuntamento ed eventuali informazioni che decidi di condividere sul trattamento desiderato.</p>
+  <p>Questo sito non contiene moduli di registrazione e non usa strumenti di profilazione<span id="gc-stat"> né di statistica</span>. Trattiamo soltanto i dati che ci comunichi tu quando ci contatti per telefono, WhatsApp, email o tramite la pagina di prenotazione online: nome, recapiti, data e ora dell'appuntamento ed eventuali informazioni che decidi di condividere sul trattamento desiderato.</p>
   <p>Ti chiediamo di non inviare, tramite questi canali, informazioni sulla tua salute che non siano strettamente necessarie. Eventuali indicazioni utili alla sicurezza del massaggio (per esempio allergie o controindicazioni) saranno trattate solo con il tuo consenso esplicito e al solo fine di eseguire il trattamento in sicurezza.</p>
 
   <h2>3. Perché li trattiamo e base giuridica</h2>
@@ -49,6 +49,7 @@
     <li><strong>WhatsApp</strong> (WhatsApp Ireland Ltd.): se ci scrivi su WhatsApp, il messaggio passa per i server di questo servizio, secondo la sua informativa.</li>
     <li><strong>Google Calendar, prenotazione online</strong> (Google Ireland Ltd.): se prenoti online, i dati inseriti nella pagina di prenotazione sono gestiti tramite Google.</li>
     <li><strong>Google Maps</strong> (Google Ireland Ltd.): la mappa viene caricata solo se premi "Mostra la mappa". Da quel momento Google può raccogliere dati di navigazione e impostare cookie.</li>
+    <li id="gc-priv" hidden><strong>GoatCounter</strong> (statistiche di visita): conta le visite e i clic sui pulsanti di contatto in forma anonima e aggregata, senza cookie e senza identificare chi visita il sito. Non richiede consenso.</li>
     <li><strong>GitHub Pages</strong> (GitHub Inc.): il servizio che ospita il sito può registrare l'indirizzo IP dei visitatori per motivi di sicurezza tecnica.</li>
   </ul>
   <p>Alcuni di questi fornitori possono trasferire dati fuori dall'Unione Europea, sulla base delle garanzie previste dal GDPR (per esempio l'EU-US Data Privacy Framework o le clausole contrattuali standard).</p>
@@ -76,6 +77,7 @@
   document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t[el.getAttribute('data-t')] || ''; });
   document.querySelectorAll('.js-mail').forEach(function (a) { a.href = 'mailto:' + D.email; });
   document.querySelectorAll('.js-tel').forEach(function (a) { a.href = 'tel:' + D.telefonoLink; });
+  if (D.goatcounter) { document.getElementById('gc-priv').hidden = false; document.getElementById('gc-stat').textContent = '; usa soltanto statistiche anonime senza cookie (vedi punto 4)'; }
   if (D.partitaIva) document.getElementById('piva-priv').textContent = ', P.IVA ' + D.partitaIva;
   document.getElementById('anno').textContent = new Date().getFullYear();
 })();
