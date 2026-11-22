@@ -5,8 +5,8 @@
 @font-face { font-family: "Didact Gothic"; src: url("fonts/didact-gothic.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 
 :root {
-  --gold-dark: #8a5f33;
-  --gold: #a17442;
+  --gold-dark: #6f4c28;
+  --gold: #8a5f33;
   --gold-mid: #c08d51;
   --gold-light: #e8ad65;
   --gold-pale: #f1c07f;
@@ -101,10 +101,10 @@ html[data-lang="en"] [lang="it"] { display: none !important; }
   min-height: calc(100svh - var(--header-h));
   display: grid; place-items: center;
   padding: 48px 16px 80px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.97) 55%, rgba(255,255,255,.7) 80%, rgba(255,255,255,.15) 100%),
-    url("img/relax.jpg") center bottom / cover no-repeat;
+  background: var(--white);
 }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; z-index: 0; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.97) 55%, rgba(255,255,255,.7) 80%, rgba(255,255,255,.15) 100%); }
 .hero-inner { position: relative; z-index: 2; text-align: center; max-width: 680px; }
 .hero-emblem { width: clamp(100px, 16vw, 150px); height: auto; margin: 0 auto 10px; }
 .hero h1 img { width: min(600px, 86vw); height: auto; margin: 0 auto; }

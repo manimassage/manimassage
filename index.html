@@ -9,11 +9,18 @@
 <meta property="og:description" content="Cura della persona per stare meglio. Massaggi su appuntamento, tutti i giorni, in Corso Umberto I a Modica.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
-<meta property="og:image" content="img/relax.jpg">
+<meta property="og:image" content="https://manimassage.github.io/manimassage/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://manimassage.github.io/manimassage/">
+<meta property="og:site_name" content="Mani Massage">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://manimassage.github.io/manimassage/">
 <meta name="theme-color" content="#a17442">
 <meta name="format-detection" content="telephone=no">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preload" as="image" href="img/relax-800.webp" imagesrcset="img/relax-800.webp 800w, img/relax-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" href="fonts/kalam-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
@@ -25,7 +32,11 @@
   "founder": {"@type": "Person", "name": "Manuela Cassone", "jobTitle": "Massaggiatrice"},
   "telephone": "+393383340587",
   "email": "manuela.cassone@gmail.com",
-  "image": "img/logo.png",
+  "image": "https://manimassage.github.io/manimassage/img/og-image.jpg",
+  "logo": "https://manimassage.github.io/manimassage/img/logo.png",
+  "url": "https://manimassage.github.io/manimassage/",
+  "areaServed": "Modica",
+  "priceRange": "€€",
   "address": {"@type": "PostalAddress", "streetAddress": "Corso Umberto I, 1", "postalCode": "97015", "addressLocality": "Modica", "addressRegion": "RG", "addressCountry": "IT"},
   "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "description": "Su appuntamento"}
 }
@@ -37,7 +48,7 @@
 
 <header class="top" id="top">
   <a class="brand" href="#top" aria-label="Mani Massage, torna all'inizio">
-    <img src="img/logo-emblema.png" alt="" width="44" height="44">
+    <img src="img/logo-emblema-96.webp" alt="" width="44" height="44">
     <span>Mani Massage</span>
   </a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
@@ -49,7 +60,7 @@
     <a href="#regali"><span lang="it">Buoni regalo</span><span lang="en">Gift vouchers</span></a>
     <a href="#prenota"><span lang="it">Prenota</span><span lang="en">Book</span></a>
     <a href="#dove"><span lang="it">Dove siamo</span><span lang="en">Find us</span></a>
-    <button class="lang" type="button" aria-label="Cambia lingua / Change language"><span lang="it">English</span><span lang="en">Italiano</span></button>
+    <button class="lang" type="button" title="Cambia lingua / Change language"><span lang="it">English</span><span lang="en">Italiano</span></button>
   </nav>
 </header>
 
@@ -57,11 +68,12 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img class="hero-orn hero-orn--l" src="img/ghirigoro.png" alt="" aria-hidden="true">
-    <img class="hero-orn hero-orn--r" src="img/ghirigoro.png" alt="" aria-hidden="true">
+    <img class="hero-bg" src="img/relax-800.webp" srcset="img/relax-800.webp 800w, img/relax-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="1066" fetchpriority="high" decoding="async">
+    <img class="hero-orn hero-orn--l" src="img/ghirigoro.svg" alt="" aria-hidden="true">
+    <img class="hero-orn hero-orn--r" src="img/ghirigoro.svg" alt="" aria-hidden="true">
     <div class="hero-inner">
-      <img class="hero-emblem" src="img/logo-emblema.png" alt="" width="150" height="150">
-      <h1><img src="img/logo-scritta.png" alt="Mani Massage" width="600" height="99"></h1>
+      <img class="hero-emblem" src="img/logo-emblema.webp" alt="" width="150" height="150" fetchpriority="high">
+      <h1><img src="img/logo-scritta.webp" srcset="img/logo-scritta-600.webp 600w, img/logo-scritta.webp 1200w" sizes="(max-width: 700px) 86vw, 600px" alt="Mani Massage" width="600" height="99"></h1>
       <p class="role"><span lang="it">Massaggiatrice</span><span lang="en">Massage therapist</span></p>
       <p class="hero-claim"><span lang="it">Cura della persona per stare meglio</span><span lang="en">Taking care of yourself, to feel better</span></p>
       <p class="hero-place">Modica · <span lang="it">su appuntamento</span><span lang="en">by appointment</span></p>
@@ -92,13 +104,13 @@
       </blockquote>
     </div>
     <figure class="about-photo">
-      <img src="img/massaggio.jpg" alt="Massaggio rilassante alla schiena a lume di candela" loading="lazy" width="1600" height="1066">
+      <img src="img/massaggio-800.webp" srcset="img/massaggio-800.webp 800w, img/massaggio-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 55vw" alt="Massaggio rilassante alla schiena a lume di candela" loading="lazy" decoding="async" width="1600" height="1066">
     </figure>
   </section>
 
   <!-- TRATTAMENTI -->
   <section class="services" id="trattamenti">
-    <img class="services-orn" src="img/ghirigoro.png" alt="" aria-hidden="true">
+    <img class="services-orn" src="img/ghirigoro.svg" alt="" aria-hidden="true">
     <header class="section-head">
       <h2><span lang="it">I trattamenti</span><span lang="en">Treatments</span></h2>
       <p><span lang="it">Prezzi di listino. Per i pacchetti, prezzi su richiesta.</span><span lang="en">List prices. Package prices on request.</span></p>
@@ -163,7 +175,7 @@
 
   <!-- DOVE SIAMO -->
   <section class="where" id="dove">
-    <img class="where-orn" src="img/ghirigoro.png" alt="" aria-hidden="true">
+    <img class="where-orn" src="img/ghirigoro.svg" alt="" aria-hidden="true">
     <div class="where-grid">
       <div class="where-info">
         <h2><span lang="it">Dove siamo</span><span lang="en">Find us</span></h2>
@@ -183,7 +195,7 @@
       </div>
       <div class="map" id="mappa">
         <div class="map-consent">
-          <img src="img/logo-emblema.png" alt="" width="70" height="70" loading="lazy">
+          <img src="img/logo-emblema-96.webp" alt="" width="70" height="70" loading="lazy">
           <p lang="it">La mappa è fornita da Google Maps. Caricandola, Google può impostare cookie.</p>
           <p lang="en">The map is provided by Google Maps. Loading it lets Google set cookies.</p>
           <button class="btn btn--gold" type="button" id="carica-mappa"><span lang="it">Mostra la mappa</span><span lang="en">Show the map</span></button>
@@ -195,7 +207,7 @@
 </main>
 
 <footer class="foot">
-  <img src="img/logo-scritta.png" alt="Mani Massage" width="220" height="36" loading="lazy">
+  <img src="img/logo-scritta-600.webp" alt="Mani Massage" width="220" height="36" loading="lazy">
   <div class="social" id="social"><!-- riempito da dati.js --></div>
   <p><span data-t="nome"></span> · <span lang="it">Massaggiatrice</span><span lang="en">Massage therapist</span></p>
   <p data-t="indirizzoCompleto"></p>

@@ -32,12 +32,12 @@ Non serve toccare gli altri file.
 
 ## Aggiungere o sostituire le foto
 
-1. Prepara la foto in formato **JPG**, larga circa **1600 pixel** (pesa così meno di 300 KB e il sito resta veloce sul telefono).
+1. Prepara la foto in formato **JPG** o, meglio, **WebP**, larga circa **1600 pixel** e sotto i 200 KB, così il sito resta veloce sul telefono. Puoi convertirla e comprimerla gratis su [squoosh.app](https://squoosh.app).
 2. Mettila nella cartella `img/` con un nome semplice, senza spazi: `studio-ingresso.jpg`.
 3. In `dati.js`:
    - per la **galleria**, aggiungi una riga in `galleria`: `{ file: "img/studio-ingresso.jpg", descrizione: "L'ingresso dello studio" },`
    - per la **foto di un trattamento**, scrivi il nome nel campo `foto` del trattamento: `foto: "img/argilla.jpg"`.
-4. Per cambiare le due foto principali (in alto e nella sezione "Chi sono") basta sostituire i file `img/relax.jpg` e `img/massaggio.jpg` con nuove foto **con lo stesso nome**.
+4. Le due foto principali (in alto e nella sezione "Chi sono") sono preparate in più misure per il telefono e il computer (`img/relax-800.webp`, `img/relax-1600.webp`, `img/massaggio-800.webp`, `img/massaggio-1600.webp`). Per cambiarle, il modo più semplice è mandarle a Claude, che le prepara e le sostituisce.
 
 Foto gratuite di qualità, utilizzabili anche per uso commerciale senza citazione: [Unsplash](https://unsplash.com) e [Pexels](https://www.pexels.com). Evita le foto con la scritta "Unsplash+" o "Premium", che sono a pagamento.
 

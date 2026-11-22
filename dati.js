@@ -104,7 +104,7 @@ window.SITO = {
      Metti le foto nella cartella img/ e aggiungi una riga per ciascuna.
      Quando avrai le foto dello studio, sostituisci queste. */
   galleria: [
-    { file: "img/massaggio.jpg", descrizione: "Massaggio rilassante alla schiena" },
-    { file: "img/relax.jpg", descrizione: "Asciugamani, orchidee e candele: l'atmosfera dello studio" }
+    { file: "img/massaggio-800.webp", descrizione: "Massaggio rilassante alla schiena" },
+    { file: "img/relax-800.webp", descrizione: "Asciugamani, orchidee e candele: l'atmosfera dello studio" }
   ]
 };
