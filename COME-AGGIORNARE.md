@@ -17,7 +17,7 @@ Non serve toccare gli altri file.
 | Telefono | `telefono` e `telefonoLink` | `"+39 338 334 0587"` e `"+393383340587"` |
 | Email | `email` | `"manuela.cassone@gmail.com"` |
 | Indirizzo | `indirizzo`, `cap`, `citta`, `provincia` | `"Corso Umberto I n. 1"` |
-| Orari | `orari_it`, `orari_en` | `"Tutti i giorni, su appuntamento."` |
+| Orari | `orari_it`, `orari_en` | `"Da lunedì a sabato, su appuntamento."` |
 | Prenotazione online | `prenotazioneOnline` | link della pagina di prenotazione di Google Calendar |
 | Social | `instagram`, `facebook` | `"https://www.instagram.com/manimassage"` |
 | Scheda Google | `schedaGoogle`, `recensioniGoogle` | link della scheda Google Business |

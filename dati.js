@@ -24,8 +24,8 @@ window.SITO = {
   cap: "97015",
   citta: "Modica",
   provincia: "RG",
-  orari_it: "Tutti i giorni, sabato e domenica compresi, solo su appuntamento.",
-  orari_en: "Every day, including Saturday and Sunday, by appointment only.",
+  orari_it: "Da lunedì a sabato, solo su appuntamento.",
+  orari_en: "Monday to Saturday, by appointment only.",
 
   /* ---------- PRENOTAZIONE ONLINE ----------
      Incolla qui il link della pagina di prenotazione di Google Calendar
@@ -140,8 +140,8 @@ window.SITO = {
     {
       d_it: "Devo prenotare in anticipo?",
       d_en: "Do I need to book in advance?",
-      r_it: "Sì, ricevo solo su appuntamento, tutti i giorni compresi sabato e domenica. Puoi prenotare online, su WhatsApp o con una telefonata.",
-      r_en: "Yes, I work by appointment only, every day including weekends. You can book online, on WhatsApp or by phone."
+      r_it: "Sì, ricevo solo su appuntamento, da lunedì a sabato. Puoi prenotare online, su WhatsApp o con una telefonata.",
+      r_en: "Yes, I work by appointment only, Monday to Saturday. You can book online, on WhatsApp or by phone."
     },
     {
       d_it: "Cosa devo portare?",
