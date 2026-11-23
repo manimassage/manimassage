@@ -67,6 +67,19 @@ Dal 15 novembre al 24 dicembre il titolo della sezione regali diventa automatica
 
 ## Aggiungere o sostituire le foto
 
+**Foto dei trattamenti.** Ogni trattamento ha la sua foto, indicata nel campo `foto` di `dati.js` (per esempio `foto: "img/tratt-argilla.webp"`). Le foto attuali sono provvisorie, ricavate dalle immagini del pieghevole:
+
+| Trattamento | File |
+|---|---|
+| Massaggio con argilla calda | `img/tratt-argilla.webp` |
+| Mix Massage Antistress | `img/tratt-antistress.webp` |
+| Massaggio Californiano | `img/tratt-californiano.webp` |
+| Massaggio Relax | `img/tratt-relax.webp` |
+| Massaggio Tonico e Drenante | `img/tratt-drenante.webp` |
+
+Per sostituirle: prepara una foto orizzontale (proporzione 16:9, per esempio 800 × 450 pixel, sotto i 100 KB) e salvala nella cartella `img/` con lo stesso nome, oppure con un nome nuovo da scrivere nel campo `foto`. Con il campo vuoto (`foto: ""`) la scheda resta senza foto. Il modo più semplice resta mandare le foto a Claude, che le ritaglia, le comprime e le sostituisce.
+
+
 1. Prepara la foto in formato **JPG** o, meglio, **WebP**, larga circa **1600 pixel** e sotto i 200 KB, così il sito resta veloce sul telefono. Puoi convertirla e comprimerla gratis su [squoosh.app](https://squoosh.app).
 2. Mettila nella cartella `img/` con un nome semplice, senza spazi: `studio-ingresso.jpg`.
 3. In `dati.js`:

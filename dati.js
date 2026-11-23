@@ -70,7 +70,7 @@ window.SITO = {
       ideale_en: "For those who carry tension in the neck and back.",
       durata: "60'",
       prezzo: "",
-      foto: ""
+      foto: "img/tratt-argilla.webp"
     },
     {
       titolo_it: "Mix Massage Antistress",
@@ -81,7 +81,7 @@ window.SITO = {
       ideale_en: "For those who work hard and never find a moment to pause.",
       durata: "45'",
       prezzo: "",
-      foto: ""
+      foto: "img/tratt-antistress.webp"
     },
     {
       titolo_it: "Massaggio Californiano",
@@ -92,7 +92,7 @@ window.SITO = {
       ideale_en: "For those seeking complete relaxation, even at their first massage.",
       durata: "50'",
       prezzo: "",
-      foto: ""
+      foto: "img/tratt-californiano.webp"
     },
     {
       titolo_it: "Massaggio Relax",
@@ -103,7 +103,7 @@ window.SITO = {
       ideale_en: "To unplug and treat yourself to a tailored break.",
       durata: "45'",
       prezzo: "",
-      foto: ""
+      foto: "img/tratt-relax.webp"
     },
     {
       titolo_it: "Massaggio Tonico e Drenante",
@@ -114,7 +114,7 @@ window.SITO = {
       ideale_en: "For those with heavy legs or who spend many hours standing or sitting.",
       durata: "45'",
       prezzo: "",
-      foto: ""
+      foto: "img/tratt-drenante.webp"
     }
   ],
 

@@ -147,7 +147,7 @@ html[data-lang="en"] [lang="it"] { display: none !important; }
   background: linear-gradient(135deg, var(--beige) 0%, #f6f0e9 60%, var(--white) 100%);
   border-radius: var(--radius); box-shadow: var(--shadow);
 }
-.card-photo { width: calc(100% + 52px); max-width: none; margin: -26px -26px 18px; height: 180px; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
+.card-photo { width: calc(100% + 52px); max-width: none; margin: -26px -26px 18px; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
 .card h3 { font-size: 1.6rem; text-align: center; margin-bottom: 12px; }
 .card p { margin: 0 0 14px; }
 .card-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 10px; border-top: 1px solid rgba(193, 141, 81, .3); }

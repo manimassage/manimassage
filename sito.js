@@ -35,7 +35,7 @@
   var lista = $('#lista-trattamenti');
   (D.trattamenti || []).forEach(function (t) {
     var prezzo = t.prezzo ? esc(t.prezzo) : bi('su richiesta', 'on request');
-    var foto = t.foto ? '<img class="card-photo" src="' + esc(t.foto) + '" alt="" loading="lazy">' : '';
+    var foto = t.foto ? '<img class="card-photo" src="' + esc(t.foto) + '" alt="' + esc(t.titolo_it) + '" width="800" height="450" loading="lazy" decoding="async">' : '';
     lista.insertAdjacentHTML('beforeend',
       '<article class="card">' + foto +
         '<h3>' + bi(t.titolo_it, t.titolo_en) + '</h3>' +
