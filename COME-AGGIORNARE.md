@@ -33,7 +33,7 @@ Non serve toccare gli altri file.
 2. Incollalo sotto l'ultimo blocco.
 3. Cambia titolo, testo (italiano e inglese), durata e prezzo.
 
-Ogni trattamento ha anche la riga **Ideale** (`ideale_it`, `ideale_en`): una frase breve su a chi è adatto. Nei testi evita promesse di tipo medico (per esempio "cura", "guarisce", "elimina la cellulite").
+Ogni scheda ha: titolo, **frase in evidenza** (`frase_it`, `frase_en`), durata e prezzo, descrizione (`testo_it`, `testo_en`; per separare i paragrafi scrivi `\n\n`), **A chi è consigliato** (`ideale_it`, `ideale_en`) e il pulsante Prenota il tuo massaggio. Nei testi evita promesse di tipo medico (per esempio "cura", "guarisce", "elimina la cellulite").
 
 ## Recensioni
 
@@ -67,7 +67,7 @@ Dal 15 novembre al 24 dicembre il titolo della sezione regali diventa automatica
 
 ## Aggiungere o sostituire le foto
 
-**Foto dei trattamenti.** Ogni trattamento ha la sua foto, indicata nel campo `foto` di `dati.js` (per esempio `foto: "img/tratt-argilla.webp"`). Le foto attuali sono provvisorie, ricavate dalle immagini del pieghevole:
+**Foto dei trattamenti.** Ogni trattamento ha la sua foto, indicata nel campo `foto` di `dati.js` (per esempio `foto: "img/tratt-argilla.webp"`). Le foto attuali sono quelle fornite il 23/11/2026:
 
 | Trattamento | File |
 |---|---|

@@ -33,24 +33,42 @@
 
   /* trattamenti */
   var lista = $('#lista-trattamenti');
+  var paras = function (txt, lang) { return String(txt || '').split(/\n\s*\n/).map(function (p) { return '<p lang="' + lang + '">' + esc(p.trim()) + '</p>'; }).join(''); };
+  var durEn = function (d) { return String(d || '').replace(/minuti/i, 'minutes'); };
   (D.trattamenti || []).forEach(function (t) {
     var prezzo = t.prezzo ? esc(t.prezzo) : bi('su richiesta', 'on request');
     var foto = t.foto ? '<img class="card-photo" src="' + esc(t.foto) + '" alt="' + esc(t.titolo_it) + '" width="800" height="450" loading="lazy" decoding="async">' : '';
     lista.insertAdjacentHTML('beforeend',
       '<article class="card">' + foto +
         '<h3>' + bi(t.titolo_it, t.titolo_en) + '</h3>' +
-        '<p lang="it">' + esc(t.testo_it) + '</p><p lang="en">' + esc(t.testo_en || t.testo_it) + '</p>' +
-        (t.ideale_it ? '<p class="ideal"><strong>' + bi('Ideale:', 'Ideal for:') + '</strong> ' + bi(t.ideale_it, t.ideale_en) + '</p>' : '') +
-        '<div class="card-foot">' +
-          '<span class="time">' + bi('Tempo', 'Time') + ' ' + esc(t.durata) + '</span>' +
+        (t.frase_it ? '<p class="card-tagline">' + bi(t.frase_it, t.frase_en) + '</p>' : '') +
+        '<div class="card-meta">' +
+          '<span class="time"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm-1 3v6l5 3 1-1.7-4-2.3V7h-2Z"/></svg>' + bi(t.durata, durEn(t.durata)) + '</span>' +
           '<span class="price">' + prezzo + '</span>' +
         '</div>' +
-        '<div class="card-links">' +
-          '<a class="card-book" href="' + wa('Ciao Manuela, vorrei prenotare: ' + t.titolo_it + '.') + '" target="_blank" rel="noopener">' + bi('Prenota', 'Book') + ' →</a>' +
-          '<a class="card-gift" href="' + wa('Ciao Manuela, vorrei regalare un buono per: ' + t.titolo_it + '.') + '" target="_blank" rel="noopener">' + bi('Regalalo', 'Gift it') + '</a>' +
+        '<div class="card-text">' + paras(t.testo_it, 'it') + paras(t.testo_en || t.testo_it, 'en') + '</div>' +
+        (t.ideale_it ? '<p class="ideal"><strong>' + bi('A chi è consigliato:', 'Recommended for:') + '</strong> ' + bi(t.ideale_it, t.ideale_en) + '</p>' : '') +
+        '<div class="card-actions">' +
+          '<a class="btn btn--book card-book" href="' + wa('Ciao Manuela, vorrei prenotare il ' + t.titolo_it + '. Quando sei disponibile?') + '" target="_blank" rel="noopener">' + bi('Prenota il tuo massaggio', 'Book your massage') + '</a>' +
+          '<a class="card-gift" href="' + wa('Ciao Manuela, vorrei regalare un buono per: ' + t.titolo_it + '.') + '" target="_blank" rel="noopener">' + bi('Regalalo a qualcuno', 'Give it as a gift') + '</a>' +
         '</div>' +
       '</article>');
   });
+
+  /* dati strutturati: listino dei trattamenti */
+  try {
+    var ldBiz = $$('script[type="application/ld+json"]').filter(function (s) { return /HealthAndBeautyBusiness/.test(s.textContent); })[0];
+    if (ldBiz && (D.trattamenti || []).length) {
+      var obj = JSON.parse(ldBiz.textContent);
+      obj.hasOfferCatalog = { '@type': 'OfferCatalog', name: 'Trattamenti', itemListElement: D.trattamenti.map(function (t) {
+        var o = { '@type': 'Offer', itemOffered: { '@type': 'Service', name: t.titolo_it, description: t.frase_it || '' } };
+        var n = parseFloat(String(t.prezzo || '').replace(/[^\d,.]/g, '').replace(',', '.'));
+        if (!isNaN(n)) { o.price = n.toFixed(2); o.priceCurrency = 'EUR'; }
+        return o;
+      }) };
+      ldBiz.textContent = JSON.stringify(obj);
+    }
+  } catch (e) {}
 
   /* offerta di benvenuto */
   if (D.offertaBenvenuto_it) {
